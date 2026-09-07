@@ -1,0 +1,49 @@
+name: Deploy GDB website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static website
+        shell: bash
+        run: |
+          mkdir -p _site/channels-logo _site/clients-logo
+          cp index.html styles.css app.js _site/
+          find channels-logo -maxdepth 1 -type f -name '*.png' -exec cp {} _site/channels-logo/ \;
+          find clients-logo -maxdepth 1 -type f -name '*.jpg' -exec cp {} _site/clients-logo/ \;
+          touch _site/.nojekyll
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
