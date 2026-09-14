@@ -11,3 +11,67 @@ html,body,.presentation{background:white;overflow:visible!important}.toolbar,.pa
 #mode{width:44px;height:44px;padding:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 #mode svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 #mode[data-mode="presentation"] .icon-presentation,#mode[data-mode="reading"] .icon-reading{display:none}
+
+/* Supplier cooperation: existing editorial columns, rules and timeline. */
+.supplier-intro{font-size:24px;line-height:1.55;margin-top:28px;max-width:1160px}
+.supplier-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;margin-top:44px}
+.supplier-columns.three{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:56px}
+.supplier-columns.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:44px}
+.supplier-columns article{border-top:1px solid var(--ink);padding-top:20px}
+.supplier-index{display:block;font-size:20px;font-weight:700;color:var(--muted);margin-bottom:20px}
+.supplier-columns h3{font-size:32px;margin-bottom:18px}
+.supplier-columns p{font-size:24px;line-height:1.6}
+.supplier-columns small{display:block;margin-top:24px;font-size:18px;color:var(--muted);line-height:1.5}
+.supplier-columns strong{display:block;font-size:24px;margin-bottom:14px}
+.supplier-columns.four h3{font-size:28px}
+.supplier-columns.four p{font-size:22px}
+.supplier-note{position:absolute;bottom:58px;left:72px;right:72px;border-top:1px solid var(--line);padding-top:20px;font-size:20px;line-height:1.5}
+.supplier-five{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:80px}
+.supplier-five h3{font-size:28px}
+.supplier-tasks{margin-top:38px;gap:30px 72px}
+.supplier-tasks article{padding-top:18px}
+.supplier-tasks h3{font-size:30px;margin-top:12px}
+.supplier-tasks p{font-size:24px;margin-top:12px;line-height:1.5}
+.supplier-summary{display:grid;gap:20px;margin-top:34px;max-width:1140px}
+.supplier-summary article{display:flex;gap:28px;border-top:1px solid var(--line);padding-top:16px}
+.supplier-summary article>span{font-size:22px;font-weight:700;color:var(--muted);padding-top:4px}
+.supplier-summary h3{font-size:26px}
+.supplier-summary p{font-size:22px;line-height:1.5;margin-top:6px}
+.supplier-wordmark{position:absolute;bottom:42px;right:72px;font-size:40px;font-weight:900;letter-spacing:-2px}
+@media screen and (max-width:959px){
+:where(body:not(.presentation)) .supplier-columns,:where(body:not(.presentation)) .supplier-columns.three,:where(body:not(.presentation)) .supplier-columns.four{grid-template-columns:1fr;gap:30px;margin-top:32px}
+:where(body:not(.presentation)) .supplier-intro{font-size:19px;margin-top:24px}
+:where(body:not(.presentation)) .supplier-columns h3{font-size:26px;margin-bottom:12px}
+:where(body:not(.presentation)) .supplier-columns p,:where(body:not(.presentation)) .supplier-columns strong{font-size:19px}
+:where(body:not(.presentation)) .supplier-columns small{font-size:14px;margin-top:18px}
+:where(body:not(.presentation)) .supplier-index{font-size:17px;margin-bottom:14px}
+:where(body:not(.presentation)) .supplier-note{position:static;margin-top:32px;font-size:16px}
+:where(body:not(.presentation)) .supplier-five{grid-template-columns:1fr;margin-top:40px}
+:where(body:not(.presentation)) .supplier-tasks{gap:28px;margin-top:32px}
+:where(body:not(.presentation)) .supplier-tasks h3{font-size:26px}
+:where(body:not(.presentation)) .supplier-tasks p{font-size:19px}
+:where(body:not(.presentation)) .supplier-summary{gap:24px;margin-top:32px}
+:where(body:not(.presentation)) .supplier-summary article{gap:18px}
+:where(body:not(.presentation)) .supplier-summary h3{font-size:24px}
+:where(body:not(.presentation)) .supplier-summary p{font-size:19px}
+:where(body:not(.presentation)) .supplier-wordmark{position:static;text-align:right;margin-top:32px}
+}
+
+/* Persistent mode identifiers across the warehouse and self-fulfillment pages. */
+.mode-badge{position:absolute;top:44px;right:72px;display:flex;align-items:center;gap:18px;padding:12px 20px;border:1px solid var(--ink);font-size:20px;line-height:1.4;font-weight:700}
+.mode-badge span+span{padding-left:18px;border-left:1px solid currentColor;font-size:16px;font-weight:400}
+.mode-badge-warehouse{background:var(--ink);color:var(--paper)}
+.mode-badge-self{background:var(--paper);color:var(--ink);border-left:5px solid var(--red)}
+@media screen and (max-width:959px){
+:where(body:not(.presentation)) .mode-badge{position:static;display:table;margin:-6px 0 24px;padding:9px 14px;font-size:17px}
+:where(body:not(.presentation)) .mode-badge span+span{margin-left:14px;padding-left:14px;font-size:14px}
+}
+
+/* Align onboarding responsibilities between the step titles and descriptions. */
+#supplier-onboarding .supplier-columns article{display:flex;flex-direction:column}
+#supplier-onboarding .supplier-columns h3{min-height:38px;margin-bottom:0}
+#supplier-onboarding .step-responsibility{font-size:18px;line-height:1.5;color:var(--muted);margin:12px 0 20px}
+@media screen and (max-width:959px){
+:where(body:not(.presentation)) #supplier-onboarding .supplier-columns h3{min-height:0}
+:where(body:not(.presentation)) #supplier-onboarding .step-responsibility{font-size:14px;margin:10px 0 16px}
+}

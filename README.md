@@ -2,7 +2,7 @@
 
 開啟 `index.html` 即可瀏覽，無需安裝套件。亦可在此資料夾執行 `python3 -m http.server 8000`，再開啟 http://localhost:8000。
 
-- 共 9 頁；桌面以方向鍵、Home、End 或章節導覽切換。
+- 共 18 頁（合作流程總覽已合併，供應商合作細節接續於第 10 頁）；桌面以方向鍵、Home、End 或章節導覽切換。
 - 小於 960px 寬或 540px 高，預設改為自然捲動；右上方可切換模式。
 - 修改內容：`index.html`；視覺樣式：`styles.css`；換頁行為：`app.js`。
 - 客戶與通路圖片分別位於 `clients-logo/`、`channels-logo/`，保留來源原檔。

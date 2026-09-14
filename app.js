@@ -14,10 +14,11 @@ function scrollToCurrent(){
 const labels=['核心價值','服務內容','服務內容','服務內容','服務內容','服務內容','客戶背書','商業模式','合作流程'];
 function update(){
  slides.forEach((s,i)=>{s.classList.toggle('active',i===current);s.inert=!reading&&i!==current;s.setAttribute('aria-hidden',String(!reading&&i!==current));});
- const section=current===0?0:current<6?1:current;
+ const section=current>=9?9:current===0?0:current<6?1:current;
  links.forEach(a=>{if(Number(a.dataset.section)===section)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
  document.querySelector('#page-number').textContent=String(current+1).padStart(2,'0');
- document.querySelector('#page-label').textContent=labels[current];
+ document.querySelector('#page-label').textContent=labels[current]??'供應商合作';
+ document.querySelector('#page-total').textContent=String(slides.length).padStart(2,'0');
 }
 function fit(){document.documentElement.style.setProperty('--scale',Math.min(innerWidth/1440,(innerHeight-120)/810));}
 function applyMode(){
